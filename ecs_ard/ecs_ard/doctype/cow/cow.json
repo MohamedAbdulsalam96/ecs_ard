@@ -1,0 +1,201 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2023-02-13 11:46:53.519953",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "code",
+  "batch",
+  "current_warehouse",
+  "kilogram",
+  "column_break_5",
+  "item",
+  "item_name",
+  "purchase_order",
+  "purchase_receipt",
+  "section_break_10",
+  "warehouse",
+  "column_break_13",
+  "weight_history",
+  "edit_tab",
+  "section_break_18",
+  "edit_warehouse",
+  "new_warehouse",
+  "warehouse_date",
+  "column_break_22",
+  "warehouse_remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "naming_series",
+   "options": "COW-"
+  },
+  {
+   "fieldname": "purchase_receipt",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Purchase Receipt",
+   "options": "Purchase Receipt",
+   "read_only": 1
+  },
+  {
+   "fieldname": "code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Serial No",
+   "options": "Serial No",
+   "read_only": 1
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item Code",
+   "options": "Item",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "item.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Name",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "kilogram",
+   "fieldtype": "Float",
+   "label": "Current Weight (in Kg)",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "warehouse",
+   "fieldtype": "Table",
+   "label": "Warehouse History",
+   "no_copy": 1,
+   "options": "Cow History",
+   "read_only": 1
+  },
+  {
+   "fieldname": "batch",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Batch",
+   "options": "Batch",
+   "read_only": 1
+  },
+  {
+   "fieldname": "purchase_order",
+   "fieldtype": "Link",
+   "label": "Purchase Order",
+   "options": "Purchase Order",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_10",
+   "fieldtype": "Tab Break",
+   "label": "Cow History"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "current_warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Current Warehouse",
+   "options": "Warehouse",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "weight_history",
+   "fieldtype": "Table",
+   "label": "Weight History",
+   "no_copy": 1,
+   "options": "Cow Weight History",
+   "read_only": 1
+  },
+  {
+   "fieldname": "edit_tab",
+   "fieldtype": "Tab Break",
+   "label": "Warehouse Movement"
+  },
+  {
+   "fieldname": "section_break_18",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "edit_warehouse",
+   "fieldtype": "Check",
+   "label": "Move To A New Warehouse"
+  },
+  {
+   "depends_on": "eval:doc.edit_warehouse",
+   "fieldname": "new_warehouse",
+   "fieldtype": "Link",
+   "label": "New Warehouse",
+   "mandatory_depends_on": "eval:doc.edit_warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "depends_on": "eval:doc.edit_warehouse",
+   "fieldname": "warehouse_date",
+   "fieldtype": "Date",
+   "label": "Movement Date",
+   "mandatory_depends_on": "eval:doc.edit_warehouse"
+  },
+  {
+   "fieldname": "column_break_22",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.edit_warehouse",
+   "fieldname": "warehouse_remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "in_create": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-03-08 15:52:10.750196",
+ "modified_by": "Administrator",
+ "module": "Ecs Ard",
+ "name": "COW",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,97 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2023-02-13 11:47:21.258210",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "cow_code",
+  "item_name",
+  "weight",
+  "warehouse",
+  "old_code",
+  "new_code",
+  "valuation_rate",
+  "batch",
+  "quantity_of_food",
+  "value_of_food"
+ ],
+ "fields": [
+  {
+   "fieldname": "cow_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "COW Code",
+   "options": "COW"
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Name"
+  },
+  {
+   "fieldname": "weight",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Weight"
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Warehouse"
+  },
+  {
+   "fieldname": "old_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Old Code"
+  },
+  {
+   "fieldname": "new_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "New Code"
+  },
+  {
+   "fieldname": "batch",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Batch",
+   "options": "Batch"
+  },
+  {
+   "fieldname": "quantity_of_food",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Quantity of Food"
+  },
+  {
+   "fieldname": "value_of_food",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Value of Food"
+  },
+  {
+   "fieldname": "valuation_rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Valuation Rate"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-03-07 14:40:16.774328",
+ "modified_by": "Administrator",
+ "module": "Ecs Ard",
+ "name": "COWS",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

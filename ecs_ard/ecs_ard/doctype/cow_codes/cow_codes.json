@@ -1,0 +1,199 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2023-02-13 12:05:37.085992",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "warehouse",
+  "feed_warehouse",
+  "item_code",
+  "production_item",
+  "column_break_4",
+  "batch1",
+  "manual",
+  "qty_per_one",
+  "actual_qty",
+  "total_food_qty",
+  "rate_for_1kg",
+  "valuation_rate",
+  "section_break_7",
+  "get_cows",
+  "cows1",
+  "amended_from",
+  "column_break_9",
+  "create_stock_reconciliation",
+  "calculate_food_cost",
+  "section_break_11",
+  "cows"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "naming_series",
+   "options": "CCOD-"
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "label": "Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "label": "Item Code",
+   "options": "Item"
+  },
+  {
+   "fieldname": "get_cows",
+   "fieldtype": "Button",
+   "label": "Get Cows"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "cows",
+   "fieldtype": "Table",
+   "label": "COWS",
+   "options": "COWS"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Cow Codes",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Cow Codes",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "create_stock_reconciliation",
+   "fieldtype": "Button",
+   "label": "Feed"
+  },
+  {
+   "fieldname": "section_break_11",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "cows1",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "label": "COWS",
+   "options": "COWS"
+  },
+  {
+   "fieldname": "batch1",
+   "fieldtype": "Link",
+   "label": "Batch",
+   "options": "Batch"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "feed_warehouse",
+   "fieldtype": "Link",
+   "label": "Feed Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "total_food_qty",
+   "fieldtype": "Float",
+   "label": "Total Food Qty"
+  },
+  {
+   "fieldname": "rate_for_1kg",
+   "fieldtype": "Currency",
+   "label": "Rate For 1 KG"
+  },
+  {
+   "fieldname": "calculate_food_cost",
+   "fieldtype": "Button",
+   "label": "Calculate Food Cost"
+  },
+  {
+   "fieldname": "actual_qty",
+   "fieldtype": "Float",
+   "label": "Actual Qty"
+  },
+  {
+   "fetch_from": "production_item.over_billing_allowance",
+   "fetch_if_empty": 1,
+   "fieldname": "qty_per_one",
+   "fieldtype": "Data",
+   "label": "Qty Per One"
+  },
+  {
+   "default": "0",
+   "fieldname": "manual",
+   "fieldtype": "Check",
+   "label": "Manual"
+  },
+  {
+   "fieldname": "valuation_rate",
+   "fieldtype": "Currency",
+   "label": "Valuation Rate"
+  },
+  {
+   "fieldname": "production_item",
+   "fieldtype": "Link",
+   "label": "Feed Item",
+   "options": "Item"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [
+  {
+   "custom": 1,
+   "link_doctype": "Work Order",
+   "link_fieldname": "cow_code"
+  }
+ ],
+ "modified": "2023-03-07 12:39:08.263805",
+ "modified_by": "Administrator",
+ "module": "Ecs Ard",
+ "name": "Cow Codes",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
