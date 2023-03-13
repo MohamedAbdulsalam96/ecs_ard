@@ -456,17 +456,20 @@ def pr_before_validate(doc, method=None):
 @frappe.whitelist()
 def pr_validate(doc, method=None):
     for item in doc.items:
-        item.weight_per_unit = doc.average_weight1 / item.qty
-        item.total_weight = doc.average_weight1
-        item.weight_uom = "Kg"
+        if item.item_group == "Animals":
+            if not doc.average_weight1:
+                frappe.throw("Please Insert Average Weight")
+            item.weight_per_unit = (doc.average_weight1 / item.qty)
+            item.total_weight = doc.average_weight1
+            item.weight_uom = "Kg"
 
-        max_weight = frappe.db.get_value("Warehouse", item.warehouse, "max_weight")
-        min_weight = frappe.db.get_value("Warehouse", item.warehouse, "min_weight")
-        if (item.weight_per_unit > max_weight) or (item.weight_per_unit < min_weight):
-            frappe.msgprint("Weight Per Unit (" + str(round(item.weight_per_unit, 2))  
-                            + " KG) Is Not In Range Of Warehouse (" + str(item.warehouse)
-                            + ")" + "<br>" + "Warehouse Weight Range: (" + str(int(min_weight)) 
-                            + " KG - " + str(int(max_weight)) + " KG)")
+            max_weight = frappe.db.get_value("Warehouse", item.warehouse, "max_weight")
+            min_weight = frappe.db.get_value("Warehouse", item.warehouse, "min_weight")
+            if (item.weight_per_unit > max_weight) or (item.weight_per_unit < min_weight):
+                frappe.msgprint("Weight Per Unit (" + str(round(item.weight_per_unit, 2))  
+                                + " KG) Is Not In Range Of Warehouse (" + str(item.warehouse)
+                                + ")" + "<br>" + "Warehouse Weight Range: (" + str(int(min_weight)) 
+                                + " KG - " + str(int(max_weight)) + " KG)")
 
 
 @frappe.whitelist()

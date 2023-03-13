@@ -25,6 +25,7 @@
   "expense_amount",
   "column_break_4",
   "qty_per_one",
+  "manual2",
   "column_break_15",
   "actual_qty",
   "column_break_18",
@@ -34,13 +35,6 @@
   "rate_for_1kg",
   "column_break_22",
   "total_food_amount",
-  "section_break_7",
-  "get_cows",
-  "cows1",
-  "column_break_32",
-  "create_stock_reconciliation",
-  "column_break_9",
-  "calculate_food_cost",
   "section_break_11",
   "cows"
  ],
@@ -55,6 +49,8 @@
   {
    "fieldname": "transaction_type",
    "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Transaction Type",
    "options": "\nFeeding\nTreatment\nExpense"
   },
@@ -78,6 +74,7 @@
   {
    "fieldname": "warehouse",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Cow Warehouse",
    "options": "Warehouse",
    "reqd": 1
@@ -93,6 +90,7 @@
   {
    "fieldname": "item_code",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Cow Item",
    "options": "Item",
    "reqd": 1
@@ -110,64 +108,32 @@
    "label": "Manual"
   },
   {
-   "fetch_from": "warehouse.feeding_qty",
    "fetch_if_empty": 1,
    "fieldname": "qty_per_one",
    "fieldtype": "Float",
-   "label": "Qty Per One",
-   "read_only": 1
+   "label": "Food Qty Per Cow (KG)",
+   "read_only": 1,
+   "read_only_depends_on": "eval:doc.manual2 == 0"
   },
   {
    "fieldname": "actual_qty",
    "fieldtype": "Float",
-   "label": "Actual Qty",
+   "label": "Cows Count",
    "read_only": 1
   },
   {
    "fieldname": "total_food_qty",
    "fieldtype": "Float",
-   "label": "Total Food Qty",
+   "label": "Total Food Qty (KG)",
    "read_only_depends_on": "eval:doc.manual == 0"
   },
   {
    "fieldname": "rate_for_1kg",
    "fieldtype": "Currency",
-   "label": "Rate For 1 KG",
+   "label": "Food Rate For 1 KG",
    "read_only": 1
   },
   {
-   "depends_on": "eval:doc.transaction_type == \"Feeding\" || doc.transaction_type == \"Treatment\"",
-   "fieldname": "section_break_7",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "get_cows",
-   "fieldtype": "Button",
-   "label": "Get Cows"
-  },
-  {
-   "fieldname": "cows1",
-   "fieldtype": "Table",
-   "hidden": 1,
-   "label": "COWS",
-   "options": "COWS"
-  },
-  {
-   "fieldname": "column_break_9",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "create_stock_reconciliation",
-   "fieldtype": "Button",
-   "label": "Feed"
-  },
-  {
-   "fieldname": "calculate_food_cost",
-   "fieldtype": "Button",
-   "label": "Calculate Food Cost"
-  },
-  {
-   "depends_on": "eval:doc.transaction_type == \"Feeding\" || doc.transaction_type == \"Treatment\"",
    "fieldname": "section_break_11",
    "fieldtype": "Section Break"
   },
@@ -256,20 +222,22 @@
    "options": "currency"
   },
   {
-   "fieldname": "column_break_32",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "total_food_amount",
    "fieldtype": "Currency",
    "label": "Total Food Amount",
    "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "manual2",
+   "fieldtype": "Check",
+   "label": "Manual"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-03-07 14:02:31.233352",
+ "modified": "2023-03-13 10:10:46.025970",
  "modified_by": "Administrator",
  "module": "Ecs Ard",
  "name": "Cow Transaction",

@@ -26,5 +26,13 @@ frappe.ui.form.on('Cow Transaction', {
 				]
 			};
 		});
+
+		frm.set_query("account", function() {
+			return {
+				filters: [
+					["Account","account_type", "=", "Stock Adjustment"]
+				]
+			};
+		});
 	}
 });
